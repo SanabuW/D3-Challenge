@@ -57,7 +57,7 @@ function xScale(healthData, chosenXAxis) {
 
 function yScale(healthData, chosenYAxis) {
     var yLinearScale = d3.scaleLinear()
-        .domain([d3.min(healthData, d => d[chosenYAxis]) * 0.7,
+        .domain([d3.min(healthData, d => d[chosenYAxis]) * 0.9,
             d3.max(healthData, d => d[chosenYAxis]) * 1.1
         ])
         .range([height, 0]);
@@ -99,19 +99,28 @@ function updateToolTip() {
 
 d3.csv("./assets/data/data.csv").then(function(healthData, err) {
     if (err) throw err;
-    console.log(healthData)
-
-    console.log(`before ${chosenYAxis}: ${d3.max(healthData, d => d[chosenYAxis])}`)
 
     healthData.forEach(function(d){
-        d[chosenYAxis] = +d[chosenYAxis];
-    })
+        d["obesity"] = +d["obesity"];
+        d["smokes"] = +d["smokes"];
+        d["healthcare"] = +d["healthcare"];
+    });
+
     healthData.forEach(function(d){
-        d[chosenXAxis] = +d[chosenXAxis];
-    })
-    console.log(`after ${chosenYAxis}: ${d3.max(healthData, d => d[chosenYAxis])}`)
+        d["poverty"] = +d["poverty"];
+        d["age"] = +d["age"];
+        d["income"] = +d["income"];
 
+    });
+    // healthData.forEach(function(d){
+    //     d[chosenYAxis] = +d[chosenYAxis];
+    // });
 
+    // healthData.forEach(function(d){
+    //     d[chosenXAxis] = +d[chosenXAxis];
+    // });
+
+    
     // Create scalers functions
     var xLinearScale = xScale(healthData, chosenXAxis);
     var yLinearScale = yScale(healthData, chosenYAxis);
@@ -131,7 +140,6 @@ d3.csv("./assets/data/data.csv").then(function(healthData, err) {
     //     .call(leftAxis);
     var yAxis = chartGroup.append("g")
         .classed("y-axis", true)
-        .attr("transform", `translate(0, 0)`)
         .call(leftAxis);
 
     // append initial circles
@@ -141,7 +149,7 @@ d3.csv("./assets/data/data.csv").then(function(healthData, err) {
         .append("circle")
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
         .attr("cy", d => yLinearScale(d[chosenYAxis]))
-        .attr("r", 20)
+        .attr("r", 10)
         .attr("fill", "pink")
         .attr("opacity", ".5");
 
