@@ -16,12 +16,12 @@ income
 */
 
 var svgWidth = 960;
-var svgHeight = 500;
+var svgHeight = 550;
 
 var margin = {
     top: 20,
     right: 40,
-    bottom: 85,
+    bottom: 135,
     left: 100
 };
 
@@ -146,6 +146,20 @@ d3.csv("./assets/data/data.csv").then(function(healthData, err) {
         .classed("y-axis", true)
         .call(leftAxis);
 
+
+//   var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
+var tool_tip = d3.tip()
+    .attr("class", "d3-tip")
+    .offset([-8, 0])
+    .html(function(d) { return `${d.state}<br>
+    ${chosenXAxis}: ${d[chosenXAxis]}<br>
+    ${chosenYAxis}: ${d[chosenYAxis]}
+    `; })
+    // .html(function(d) { return "test2: " + d; });
+chartGroup.call(tool_tip);
+
+
+
     // append initial circles
     var circlesGroup = chartGroup.selectAll("circle")
         .data(healthData)
@@ -155,9 +169,11 @@ d3.csv("./assets/data/data.csv").then(function(healthData, err) {
         .attr("cy", d => yLinearScale(d[chosenYAxis]))
         .attr("r", 12)
         .attr("fill", "blue")
-        .attr("opacity", ".5");
+        .attr("opacity", ".5")
+        .on('mouseover', tool_tip.show)
+        .on('mouseout', tool_tip.hide);
 
-     var textsGroup = chartGroup.selectAll("null")
+    var textsGroup = chartGroup.selectAll("null")
         .data(healthData)
         .enter()
         .append("text")
@@ -235,7 +251,10 @@ d3.csv("./assets/data/data.csv").then(function(healthData, err) {
         .attr("y", -ylabelSpacer * 2)
         .attr("x", 0);
 
-//   var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
+
+
+
+
 
   // x axis labels event listener
     xlabelsGroup.selectAll("text")
