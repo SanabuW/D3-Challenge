@@ -48,7 +48,7 @@ var chosenYAxis = "obesity";
 // Create scaling and axes building functions
 function xScale(healthData, chosenXAxis) {
     var xLinearScale = d3.scaleLinear()
-        .domain([d3.min(healthData, d => d[chosenXAxis]) * 0.9,
+        .domain([d3.min(healthData, d => d[chosenXAxis]) * 0.85,
           d3.max(healthData, d => d[chosenXAxis]) * 1.1
     ])
         .range([0, width]);
@@ -57,7 +57,7 @@ function xScale(healthData, chosenXAxis) {
 
 function yScale(healthData, chosenYAxis) {
     var yLinearScale = d3.scaleLinear()
-        .domain([d3.min(healthData, d => d[chosenYAxis]) * 0.9,
+        .domain([d3.min(healthData, d => d[chosenYAxis]) * 0.85,
             d3.max(healthData, d => d[chosenYAxis]) * 1.1
         ])
         .range([height, 0]);
@@ -88,7 +88,13 @@ function renderCircles(circlesGroup, newXScale, newYScale, chosenXAxis, chosenYA
         .attr("cy", d => newYScale(d[chosenYAxis]));
     return circlesGroup;
 }
-
+function renderText(textsGroup, newXScale, newYScale, chosenXAxis, chosenYAxis) {
+    textsGroup.transition()
+        .duration(1000)
+        .attr("x", d => newXScale(d[chosenXAxis]))
+        .attr("y", d => newYScale(d[chosenYAxis]));
+    return textsGroup;
+}
   // LEAVE OUT FOR NOW
   /*
 function updateToolTip() {
@@ -100,18 +106,18 @@ function updateToolTip() {
 d3.csv("./assets/data/data.csv").then(function(healthData, err) {
     if (err) throw err;
 
+
+
     healthData.forEach(function(d){
         d["obesity"] = +d["obesity"];
         d["smokes"] = +d["smokes"];
         d["healthcare"] = +d["healthcare"];
-    });
-
-    healthData.forEach(function(d){
         d["poverty"] = +d["poverty"];
         d["age"] = +d["age"];
         d["income"] = +d["income"];
-
+        d["abbr"] = String(d["abbr"]);
     });
+
     // healthData.forEach(function(d){
     //     d[chosenYAxis] = +d[chosenYAxis];
     // });
@@ -120,7 +126,7 @@ d3.csv("./assets/data/data.csv").then(function(healthData, err) {
     //     d[chosenXAxis] = +d[chosenXAxis];
     // });
 
-    
+
     // Create scalers functions
     var xLinearScale = xScale(healthData, chosenXAxis);
     var yLinearScale = yScale(healthData, chosenYAxis);
@@ -136,8 +142,6 @@ d3.csv("./assets/data/data.csv").then(function(healthData, err) {
         .call(bottomAxis);
 
   // append y axis
-    // chartGroup.append("g")
-    //     .call(leftAxis);
     var yAxis = chartGroup.append("g")
         .classed("y-axis", true)
         .call(leftAxis);
@@ -149,9 +153,29 @@ d3.csv("./assets/data/data.csv").then(function(healthData, err) {
         .append("circle")
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
         .attr("cy", d => yLinearScale(d[chosenYAxis]))
-        .attr("r", 10)
-        .attr("fill", "pink")
+        .attr("r", 12)
+        .attr("fill", "blue")
         .attr("opacity", ".5");
+
+     var textsGroup = chartGroup.selectAll("null")
+        .data(healthData)
+        .enter()
+        .append("text")
+        // .attr("class", "text")
+        // .attr("cy", "1.3em")
+        .attr("fill", "white")
+        .attr("x", d => xLinearScale(d[chosenXAxis]))
+        .attr("y", d => yLinearScale(d[chosenYAxis]))
+        .text(function (d) {
+            return d.abbr })
+        .attr("text-anchor", "middle")
+        .attr("font-size", 10)
+        ;
+
+
+
+
+
 
 
     // Create group for x-axis labels
@@ -234,6 +258,7 @@ d3.csv("./assets/data/data.csv").then(function(healthData, err) {
 
             // updates circles with new x values
             circlesGroup = renderCircles(circlesGroup, xLinearScale, yLinearScale,chosenXAxis, chosenYAxis);
+            textsGroup = renderText(textsGroup, xLinearScale, yLinearScale,chosenXAxis, chosenYAxis);
 
             // updates tooltips with new info
             // circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
@@ -295,6 +320,7 @@ d3.csv("./assets/data/data.csv").then(function(healthData, err) {
 
         // updates circles with new x values
         circlesGroup = renderCircles(circlesGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
+        textsGroup = renderText(textsGroup, xLinearScale, yLinearScale,chosenXAxis, chosenYAxis);
 
         // updates tooltips with new info
         // circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
