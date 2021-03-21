@@ -23,20 +23,19 @@ https://github.com/caged/d3-tip
 # Data Walkthrough
 The chart above visualizes correlations between various factors of populations centering around health, age and income. Each dot represents a state in the United States, with its position representing the value of the population for that state given the selected field. The labels beside and below the axes can be interacted with to show different relationships.
 
-<img src="D3_data_journalism/assets/other/images/obesity_v_poverty.png" width="800" height="412"/>
 Of particular note is that both obesity and smoker population percentages seem to have a minor correlation with household income.
+<img src="D3_data_journalism/assets/other/images/obesity_v_poverty.png" width="800" height="412"/>
 
-<img src="D3_data_journalism/assets/other/images/obesity_v_age.png" width="800" height="412"/>
 There is a significant visual difference when comparing this against visualizations where no correlation can be seen, for example in both obesity and smoker populations against average state age.
+<img src="D3_data_journalism/assets/other/images/obesity_v_age.png" width="800" height="412"/>
+
 
 
 # File Overview
+All files for the project are included in D3_data_journalism
 
 ## index.html
 - Main HTML file for the user-end application
 
-## data
-- Holds the source data to be displayed
-
-## static\js
-- Holds the Javascript app file to execute Plot.ly drawing, event listeners and data filtering
+## Assets
+- Holds all Javascript scripts, style sheets, data and images
