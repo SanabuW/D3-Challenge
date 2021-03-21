@@ -1,50 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="UTF-8">
   <title>D3Times</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/d3Style.css">
-
 </head>
 
+
 <body>
-  <!-- <script src="d3-tip.js"></script> -->
-  <style>
-  .d3-tip {
-    line-height: 1;
-    padding: 6px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    border-radius: 4px;
-    font-size: 12px;
-  }
-
-  /* Creates a small triangle extender for the tooltip */
-  .d3-tip:after {
-    box-sizing: border-box;
-    display: inline;
-    font-size: 10px;
-    width: 100%;
-    line-height: 1;
-    color: rgba(0, 0, 0, 0.8);
-    content: "\25BC";
-    position: absolute;
-    text-align: center;
-  }
-
-  /* Style northward tooltips specifically */
-  .d3-tip.n:after {
-    margin: -2px 0 0 0;
-    top: 100%;
-    left: 0;
-  }
-  </style>
-
-
-
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-12">
@@ -54,7 +21,7 @@
     <div class="row">
       <div class="col-xs-12  col-md-9">
         <div id="scatter">
-          <!-- We append our chart here. -->
+          <!-- Target element to append chart -->
         </div>
       </div>
     </div>
@@ -62,21 +29,18 @@
       <div class="col-xs-12  col-md-9">
         <div class="article">
           <h2>Correlations Discovered Between Health Risks and Age, Income</h2>
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-            quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+          <p>The chart above visualizes correlations between various factors of populations centering around health, age and income.
+            Each dot represents a state in the United States, with its position representing the value of the population for that state given the selected field.
+            The labels beside and below the axes can be interacted with to show different relationships.</p>
 
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-            quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+          <p>Of particular note is that both obesity and smoker population percentages seem to have a minor correlation with household income.</p>
 
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-            quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+          <p>There is a significant visual difference when comparing this against visualizations where no correlation can be seen, for example in both obesity and smoker populations against average state age.</p>
         </div>
       </div>
     </div>
   </div>
+
 
   <!-- Footer-->
   <div id="footer">
@@ -87,7 +51,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-  <!-- <script type="text/javascript" src="/./D3_data_journalism/assets/js/d3-tip.js"></script> -->
   <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 
