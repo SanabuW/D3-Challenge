@@ -24,10 +24,10 @@ https://github.com/caged/d3-tip
 The chart above visualizes correlations between various factors of populations centering around health, age and income. Each dot represents a state in the United States, with its position representing the value of the population for that state given the selected field. The labels beside and below the axes can be interacted with to show different relationships.
 
 Of particular note is that both obesity and smoker population percentages seem to have a minor correlation with household income.
-<img src="D3_data_journalism/assets/other/images/obesity_v_poverty.png" width="800" height="412"/>
+<img src="D3_data_journalism/assets/other/images/obesity_v_poverty.png" width="600" height="309"/>
 
 There is a significant visual difference when comparing this against visualizations where no correlation can be seen, for example in both obesity and smoker populations against average state age.
-<img src="D3_data_journalism/assets/other/images/obesity_v_age.png" width="800" height="412"/>
+<img src="D3_data_journalism/assets/other/images/obesity_v_age.png" width="600" height="309"/>
 
 
 
