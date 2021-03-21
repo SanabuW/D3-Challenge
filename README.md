@@ -1,5 +1,5 @@
 # D3-Challenge
-UCSD D3 Challenge
+UCSD D3.js Challenge
 
 ## GitHub Pages Link:
 https://sanabuw.github.io/D3-Challenge/D3_data_journalism/index.html
