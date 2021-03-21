@@ -6,7 +6,6 @@ https://sanabuw.github.io/D3-Challenge/D3_data_journalism/index.html
 
 
 # Project Overview
-test2
 <img src="D3_data_journalism/assets/other/images/demo.gif" width="800" height="412"/>
 
 
@@ -21,12 +20,14 @@ Credit:
 Justin Palmer
 https://github.com/caged/d3-tip
 
-# Project Walkthrough
+# Data Walkthrough
+The chart above visualizes correlations between various factors of populations centering around health, age and income. Each dot represents a state in the United States, with its position representing the value of the population for that state given the selected field. The labels beside and below the axes can be interacted with to show different relationships.
 
-<img width="974" alt="obesity_v_poverty" src="https://user-images.githubusercontent.com/14988830/111890631-6fe93e80-89a8-11eb-9e24-bccbe7325ea9.png">
+<img src="D3_data_journalism/assets/other/images/obesity_v_poverty.png" width="800" height="412"/>
+Of particular note is that both obesity and smoker population percentages seem to have a minor correlation with household income.
 
-<img width="980" alt="obesity_v_age" src="https://user-images.githubusercontent.com/14988830/111890626-6069f580-89a8-11eb-8f1d-0211a69a776f.png">
-
+<img src="D3_data_journalism/assets/other/images/obesity_v_age.png" width="800" height="412"/>
+There is a significant visual difference when comparing this against visualizations where no correlation can be seen, for example in both obesity and smoker populations against average state age.
 
 
 # File Overview
