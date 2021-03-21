@@ -6,7 +6,9 @@ https://sanabuw.github.io/D3-Challenge/D3_data_journalism/index.html
 
 
 # Project Overview
-![demo](https://user-images.githubusercontent.com/14988830/111890150-07985e00-89a4-11eb-80db-8d7815c57447.gif)
+test2
+<img src="D3_data_journalism/assets/other/images/demo.gif" width="800" height="412"/>
+
 
 This repository is for the D3.js assignment for the UCSD Data Bootcamp. The concept of the assignment is to use D3.js to generate a chart that allows for user interaction with transitions. The assignment covers the following concepts:
 - Procedurally generating charting elements from tabular data using D3.js
@@ -21,7 +23,9 @@ https://github.com/caged/d3-tip
 
 # Project Walkthrough
 
+<img width="974" alt="obesity_v_poverty" src="https://user-images.githubusercontent.com/14988830/111890631-6fe93e80-89a8-11eb-9e24-bccbe7325ea9.png">
 
+<img width="980" alt="obesity_v_age" src="https://user-images.githubusercontent.com/14988830/111890626-6069f580-89a8-11eb-8f1d-0211a69a776f.png">
 
 
 
